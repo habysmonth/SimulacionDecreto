@@ -8,7 +8,10 @@ namespace Calculos
 {
     public class calculosExtra : IServicioCalculosExtra
     {
+        private static calculosExtra instancia = null;
+        double suma = 0;
         int puntos = 0;
+        
         public int calculosPuntos(string t, string medi, string tipoPos, int cantidadEsp,
             string carreraPos, int anoPs, string CEjercePos, string MaestPos, int anoMaesPos, 
             int totalEsp, string carreraPre, string escala)
@@ -86,6 +89,22 @@ namespace Calculos
             }
 
             return puntos;
+        }
+
+        public calculosExtra() { }
+
+        public static calculosExtra ObtenerInstancia()
+        {
+            if (instancia == null)
+                instancia = new calculosExtra();
+            return instancia;
+        }
+
+        public double totalPuntos(double s)
+        {
+            suma += s;
+
+            return suma;
         }
     }
 }

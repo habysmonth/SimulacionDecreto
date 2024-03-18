@@ -25,7 +25,8 @@ namespace Presentacion
             }
             else
             {
-                
+                calculosExtra ce = calculosExtra.ObtenerInstancia();
+                ce.totalPuntos(suma);
                 PaginaDos pgd = new PaginaDos();
                 pgd.ShowDialog();
             }

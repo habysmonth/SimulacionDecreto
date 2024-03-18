@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Calculos;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace Presentacion
 {
@@ -21,9 +23,10 @@ namespace Presentacion
 
         private void btnSiguienteDos_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(suma.ToString());
-            //PaginaTres pgt = new PaginaTres();
-            //pgt.ShowDialog();
+            calculosExtra ce = calculosExtra.ObtenerInstancia();
+            ce.totalPuntos(suma);
+            PaginaTres pgt = new PaginaTres();
+            pgt.ShowDialog();
         }
 
         private void btnAgregarArticulo_Click(object sender, EventArgs e)

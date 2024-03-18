@@ -12,5 +12,6 @@ namespace Calculos
         int calculosPuntos(string t, string medi, string tipoPos, int cantidadEsp, string carreraPos,
             int anoPs, string CEjercePos, string MaestPos, int anoMaesPos, int totalEsp, string carreraPre, 
             string escala);
+        double totalPuntos(double s);
     }
 }
