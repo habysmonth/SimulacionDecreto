@@ -702,6 +702,7 @@
             btnAgregarPremio.TabIndex = 91;
             btnAgregarPremio.Text = "Agregar";
             btnAgregarPremio.UseVisualStyleBackColor = true;
+            btnAgregarPremio.Click += btnAgregarPremio_Click;
             // 
             // btnAgregarPatente
             // 
@@ -711,6 +712,7 @@
             btnAgregarPatente.TabIndex = 92;
             btnAgregarPatente.Text = "Agregar";
             btnAgregarPatente.UseVisualStyleBackColor = true;
+            btnAgregarPatente.Click += btnAgregarPatente_Click;
             // 
             // btnAgregarTradiconLibros
             // 
@@ -720,6 +722,7 @@
             btnAgregarTradiconLibros.TabIndex = 93;
             btnAgregarTradiconLibros.Text = "Agregar";
             btnAgregarTradiconLibros.UseVisualStyleBackColor = true;
+            btnAgregarTradiconLibros.Click += btnAgregarTradiconLibros_Click;
             // 
             // btnAgregarObraApoyo
             // 
@@ -729,6 +732,7 @@
             btnAgregarObraApoyo.TabIndex = 94;
             btnAgregarObraApoyo.Text = "Agregar";
             btnAgregarObraApoyo.UseVisualStyleBackColor = true;
+            btnAgregarObraApoyo.Click += btnAgregarObraApoyo_Click;
             // 
             // btnAgregarObraOriginal
             // 
@@ -738,6 +742,7 @@
             btnAgregarObraOriginal.TabIndex = 95;
             btnAgregarObraOriginal.Text = "Agregar";
             btnAgregarObraOriginal.UseVisualStyleBackColor = true;
+            btnAgregarObraOriginal.Click += btnAgregarObraOriginal_Click;
             // 
             // btnAgregarPresentacion
             // 
@@ -747,6 +752,7 @@
             btnAgregarPresentacion.TabIndex = 96;
             btnAgregarPresentacion.Text = "Agregar";
             btnAgregarPresentacion.UseVisualStyleBackColor = true;
+            btnAgregarPresentacion.Click += btnAgregarPresentacion_Click;
             // 
             // btnAgregarSistemaTecnologico
             // 
@@ -756,6 +762,7 @@
             btnAgregarSistemaTecnologico.TabIndex = 97;
             btnAgregarSistemaTecnologico.Text = "Agregar";
             btnAgregarSistemaTecnologico.UseVisualStyleBackColor = true;
+            btnAgregarSistemaTecnologico.Click += btnAgregarSistemaTecnologico_Click;
             // 
             // btnAgregarSoftware
             // 
@@ -765,6 +772,7 @@
             btnAgregarSoftware.TabIndex = 98;
             btnAgregarSoftware.Text = "Agregar";
             btnAgregarSoftware.UseVisualStyleBackColor = true;
+            btnAgregarSoftware.Click += btnAgregarSoftware_Click;
             // 
             // cboTipoArticulo
             // 
