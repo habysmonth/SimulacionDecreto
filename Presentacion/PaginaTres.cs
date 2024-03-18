@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 using Calculos;
 
 namespace Presentacion
@@ -14,14 +8,31 @@ namespace Presentacion
     public partial class PaginaTres : Form
     {
         public double suma;
+        private Chart chart;
+
         public PaginaTres()
         {
             InitializeComponent();
+            // Inicializar el control Chart
+            InicializarChart();
+        }
+
+        private void InicializarChart()
+        {
+            // Crear el gráfico de línea
+            chart = new Chart();
+            chart.Size = new System.Drawing.Size(800, 600);
+            chart.Dock = DockStyle.Fill;
+            chart.ChartAreas.Add(new ChartArea("Area"));
+            chart.Series.Add(new Series("Salario"));
+            chart.Series["Salario"].ChartType = SeriesChartType.Line;
+            Controls.Add(chart);
         }
 
         private void btnCalcular_Click(object sender, EventArgs e)
         {
-            CalculoPublicaciones(); 
+            // Calcula el salario total
+            CalculoPublicaciones();
             CalculoDoctorado();
             CalculoResena();
             calculoTraduAr();
@@ -32,20 +43,23 @@ namespace Presentacion
 
             double vpunto = double.Parse(txtValorPunto.Text);
             double salario = double.Parse(txtSalarioBase.Text);
-            double sueldo = (y*vpunto) + salario;
+            double sueldo = (y * vpunto) + salario;
 
-            MessageBox.Show("Sueldo total es: "+sueldo);
+            MessageBox.Show("Sueldo total es: " + sueldo);
 
+            // Actualizar el gráfico con el salario calculado
+            //ActualizarGrafico(sueldo);
         }
 
-        public void calculos()
+        private void ActualizarGrafico(double sueldo)
         {
-            calculosExtra ce = calculosExtra.ObtenerInstancia();
-            double x = ce.totalPuntos(suma);
-            MessageBox.Show("Llevamos: " + x);
+            // Limpiar los puntos existentes en el gráfico
+            chart.Series["Salario"].Points.Clear();
+
+            // Agregar el nuevo punto al gráfico con el salario calculado
+            chart.Series["Salario"].Points.AddXY(DateTime.Now.Year, sueldo);
         }
 
-       
         public void CalculoPonencia()
         {
             double puntos = 0;
@@ -71,6 +85,7 @@ namespace Presentacion
 
             calcularTotalPuntos(puntos2);
         }
+
         public void CalculoPublicaciones()
         {
             double puntos = 0;
@@ -86,6 +101,7 @@ namespace Presentacion
 
             calcularTotalPuntos(puntos2);
         }
+
         public void CalculoDoctorado()
         {
             double puntos = 0;
@@ -101,6 +117,7 @@ namespace Presentacion
 
             calcularTotalPuntos(puntos2);
         }
+
         public void CalculoResena()
         {
             double puntos = 0;
@@ -116,6 +133,7 @@ namespace Presentacion
 
             calcularTotalPuntos(puntos2);
         }
+
         public void calculoTraduAr()
         {
             double puntos = 0;
@@ -131,6 +149,7 @@ namespace Presentacion
 
             calcularTotalPuntos(puntos2);
         }
+
         public void TesisIndi()
         {
             double puntos = 0;
@@ -139,18 +158,18 @@ namespace Presentacion
             string tipoT = cboTipoTesis.Text;
             int cantidad = int.Parse(txtTesisIndividuales.Text);
 
-            if (TR == "SI" && cantidad != 0 && (tipoT == "Ph. D"  || tipoT == "Doctorado"))
+            if (TR == "SI" && cantidad != 0 && (tipoT == "Ph. D" || tipoT == "Doctorado"))
             {
                 puntos += (cantidad * 72);
-            }else if (TR == "SI" && cantidad != 0 && tipoT == "Maestría")
+            }
+            else if (TR == "SI" && cantidad != 0 && tipoT == "Maestría")
             {
                 puntos += (cantidad * 36);
             }
-            else if(TR == "Seleccionar..." || TR == "NO")
+            else if (TR == "Seleccionar..." || TR == "NO")
             {
                 cboTipoTesis.Enabled = false;
                 txtTesisIndividuales.Enabled = false;
-                
             }
             puntos2 = (int)Math.Ceiling(puntos);
 
